@@ -1,4 +1,4 @@
-package Median;
+package LongestSubstring;
 
 import java.util.Arrays;
 
