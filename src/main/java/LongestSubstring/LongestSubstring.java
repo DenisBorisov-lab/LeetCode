@@ -4,17 +4,19 @@ import java.util.Arrays;
 
 public class LongestSubstring {
     public static int lengthOfLongestSubstring(String s) {
-        String max = new String();
-        String add = new String();
-        for (int i = 0; i < s.length() - 1; i++){
-            add += s.substring(i, i + 1);
+        StringBuilder max = new StringBuilder();
+        StringBuilder add;
+        for (int i = 0; i < s.length(); i++){
+            add = new StringBuilder(s.substring(i, i + 1));
             for (int j = i + 1; j < s.length(); j++){
-                if (Arrays.asList(add.split("")).contains(s.substring(j, j+1))){
-                    if (add.length() > max.length()){
+                if (contains(add, s.substring(j, j+1))){
+                    if (max.length() < add.length()){
                         max = add;
-                        add = "";
+                        add = new StringBuilder();
                     }
                     break;
+                }else{
+                    add.append(s.charAt(j));
                 }
             }
             if (add.length() > max.length()){
@@ -23,8 +25,28 @@ public class LongestSubstring {
         }
         return max.length();
     }
-    public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring("bbbbb"));
 
+    public static boolean contains(StringBuilder sb, String s){
+        if (sb.length() < s.length())
+            return false;
+
+        int foundLength = 0;
+
+        for (int i = 0; i < sb.length(); i++)
+        {
+            if (sb.charAt(i) == s.charAt(foundLength))
+                foundLength++;
+            else
+                foundLength = 0;
+
+            if (foundLength == s.length())
+                return true;
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(lengthOfLongestSubstring(" "));
     }
 }
