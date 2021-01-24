@@ -1,9 +1,7 @@
 package LongestSubstring;
 
-import java.util.Arrays;
-
 public class LongestSubstring {
-    public static int lengthOfLongestSubstring(String s) {
+    public int lengthOfLongestSubstring(String s) {
         StringBuilder max = new StringBuilder();
         StringBuilder add;
         for (int i = 0; i < s.length(); i++){
@@ -44,9 +42,5 @@ public class LongestSubstring {
         }
 
         return false;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring(" "));
     }
 }
