@@ -9,10 +9,10 @@ class SimplifyPathTest {
     void test(){
         final SimplifyPath path = new SimplifyPath();
         assertAll(
-                ()-> assertEquals(path.simplifyPath("/home/"), "/home"),
-                ()-> assertEquals(path.simplifyPath("/../"), "/"),
-                () -> assertEquals(path.simplifyPath("/home//foo/"), "/home/foo"),
-                () -> assertEquals(path.simplifyPath("/a/./b/../../c/"), "/c")
+                ()-> assertEquals(path.simple("/home/"), "/home"),
+                ()-> assertEquals(path.simple("/../"), "/"),
+                () -> assertEquals(path.simple("/home//foo/"), "/home/foo"),
+                () -> assertEquals(path.simple("/a/./b/../../c/"), "/c")
         );
     }
 
