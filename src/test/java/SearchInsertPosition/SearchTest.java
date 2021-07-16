@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SearchTest {
     @Test
     void test(){
-        final Search search = new Search();
+        Search search = new Search();
         int[] nums = {1, 3, 5, 6};
         final int[] number = {1};
         assertAll(
