@@ -16,6 +16,7 @@ class SearchTest {
                 () -> assertEquals(search.searchInsert(nums, 7), 4),
                 () -> assertEquals(search.searchInsert(nums, 0), 0),
                 () -> assertEquals(search.searchInsert(number, 0), 0)
+
         );
     }
 
