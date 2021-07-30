@@ -21,10 +21,6 @@ public class H2O {
         if (i % 2 == 0) {
             sO.release();
         }
-<<<<<<< HEAD
-        sH.release();
-=======
->>>>>>> origin/feature
     }
 
     public void oxygen(Runnable releaseOxygen) throws InterruptedException {
@@ -32,9 +28,5 @@ public class H2O {
         // releaseOxygen.run() outputs "O". Do not change or remove this line.
         releaseOxygen.run();
         sH.release(2);
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/feature
     }
 }
