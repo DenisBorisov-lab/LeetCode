@@ -14,14 +14,14 @@ public class FizzBuzz {
     // printFizz.run() outputs "fizz".
     //synchronized используется в качестве блокировки к общему ресурсу
     //метод wait приостанавливает действие потока до тех пор, пока не будет вызван notifyAll
-    //метод notifiAll освобождает действие всех потоков, позволяя им конкурировать
+    //метод notifyAll освобождает действие всех потоков, позволяя им конкурировать
     public synchronized void fizz(Runnable printFizz) throws InterruptedException {
-        while(counter <= n){
-            if(counter % 3 == 0 && counter % 5 != 0){
+        while (counter <= n) {
+            if (counter % 3 == 0 && counter % 5 != 0) {
                 printFizz.run();
                 counter++;
                 notifyAll();
-            }else{
+            } else {
                 wait();
             }
         }
@@ -29,12 +29,12 @@ public class FizzBuzz {
 
     // printBuzz.run() outputs "buzz".
     public synchronized void buzz(Runnable printBuzz) throws InterruptedException {
-        while(counter <= n){
-            if(counter % 3 != 0 && counter % 5 == 0){
+        while (counter <= n) {
+            if (counter % 3 != 0 && counter % 5 == 0) {
                 printBuzz.run();
                 counter++;
                 notifyAll();
-            }else{
+            } else {
                 wait();
             }
         }
@@ -42,12 +42,12 @@ public class FizzBuzz {
 
     // printFizzBuzz.run() outputs "fizzbuzz".
     public synchronized void fizzbuzz(Runnable printFizzBuzz) throws InterruptedException {
-        while(counter <= n){
-            if(counter % 3 == 0 && counter % 5 == 0){
+        while (counter <= n) {
+            if (counter % 3 == 0 && counter % 5 == 0) {
                 printFizzBuzz.run();
                 counter++;
                 notifyAll();
-            }else{
+            } else {
                 wait();
             }
         }
@@ -55,12 +55,12 @@ public class FizzBuzz {
 
     // printNumber.accept(x) outputs "x", where x is an integer.
     public synchronized void number(IntConsumer printNumber) throws InterruptedException {
-        while(counter <= n){
-            if (counter % 3 != 0 && counter % 5 != 0){
+        while (counter <= n) {
+            if (counter % 3 != 0 && counter % 5 != 0) {
                 printNumber.accept(counter);
                 counter++;
                 notifyAll();
-            }else{
+            } else {
                 wait();
             }
         }
